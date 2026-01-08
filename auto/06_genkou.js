@@ -6,7 +6,7 @@
 // ★設定項目
 const SPREADSHEET_ID = '1_w7tG6QF2iQ4hRMRCAIsTuXP7Tg-Rus4X2erGtf2VmU'; // スプレッドシートID
 const SHEET_NAME = ''; // シート名(空の場合は最初のシート)
-const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY'; // Gemini APIキー
+const GEMINI_API_KEY = PropertiesService.getScriptProperties().getProperty('YOUR_GEMINI_API_KEY');
 const OUTPUT_FOLDER_ID = ''; // 出力先フォルダID(空の場合はマイドライブ)
 
 /**
@@ -79,7 +79,8 @@ function generateSpeakerNotes() {
       
       Logger.log(`行 ${index + 2}: 成功 - ${fileName}`);
       Logger.log(`ドキュメントURL: ${doc.getUrl()}`);
-            sheet.getRange(index + 2, 3).setValue(doc.getUrl());
+      sheet.getRange(index + 2, 3).setValue(doc.getUrl());
+      
     } catch (error) {
       Logger.log(`行 ${index + 2}: エラー - ${error.message}`);
     }
