@@ -3,11 +3,16 @@
  * 未投稿記事フォルダに移動する
  */
 function moveBlogDocsToUnpostedFolder() {
-  const SHEET_NAME = 'シート1'; // ←必要に応じて変更
+  const SHEET_NAME = 'フォームの回答 1'; // ←必要に応じて変更
   const COL_BLOG_DOC_ID = 7; // G列
   const UNPOSTED_FOLDER_ID = '1KYutXxQUaMuOZVs34Apt94FLYMI7VoBh';
 
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+  const SPREADSHEET_ID = '1_w7tG6QF2iQ4hRMRCAIsTuXP7Tg-Rus4X2erGtf2VmU';
+
+  const sheet = SpreadsheetApp
+    .openById(SPREADSHEET_ID)
+    .getSheetByName(SHEET_NAME);
+
   const lastRow = sheet.getLastRow();
   const folder = DriveApp.getFolderById(UNPOSTED_FOLDER_ID);
 
