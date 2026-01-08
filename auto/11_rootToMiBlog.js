@@ -19,7 +19,10 @@ function moveBlogDocsToUnpostedFolder() {
   for (let row = 2; row <= lastRow; row++) { // 1行目はヘッダー想定
     const docId = sheet.getRange(row, COL_BLOG_DOC_ID).getValue();
 
-    if (!docId) continue;
+   if (!docId) {
+      Logger.log(`行${row}: IDが見つかりません`);
+      continue;
+    }
 
     try {
       const file = DriveApp.getFileById(docId);
