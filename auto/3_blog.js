@@ -8,6 +8,10 @@ const SPREADSHEET_ID = '1_w7tG6QF2iQ4hRMRCAIsTuXP7Tg-Rus4X2erGtf2VmU'; // スプ
 const SHEET_NAME = ''; // シート名(空の場合は最初のシート)
 const GEMINI_API_KEY = '○○'; // Gemini APIキー
 const OUTPUT_FOLDER_ID = ''; // 出力先フォルダID(空の場合はマイドライブ)
+const blogDocId = blogDoc.getId(); // ブログ記事ドキュメントIDを取得
+
+// G列にブログ記事ドキュメントIDを書き込む
+sheet.getRange(index + 2, COL_BLOG_DOC_ID).setValue(blogDocId);
 
 /**
  * メイン関数:noteブログ記事を生成
